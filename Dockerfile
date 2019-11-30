@@ -9,7 +9,7 @@ RUN apk --no-cache add git && \
 ADD . "$srcpath"
 
 RUN cd "$srcpath" && \
-    CGO_ENABLED=0 GOOS=linux GOARCH=arm64 go build -a -ldflags '-extldflags "-static"' -o /hostpath-provisioner
+    CGO_ENABLED=0 GOOS=linux GOARCH=arm go build -a -ldflags '-extldflags "-static"' -o /hostpath-provisioner
 
 FROM scratch
 
